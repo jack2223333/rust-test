@@ -1,13 +1,13 @@
-pub struct Buf {
+pub struct Array {
     header: String,
     body: [u8; 1024],
 }
 /*
 constructor传入的裸指针p可能未被初始化，不能对其取引用
 */
-impl Buf {
+impl Array {
     
-    pub unsafe fn constructor(p: *mut Buf) {
+    pub unsafe fn constructor(p: *mut Array) {
         let header: *mut String = &mut (*p).header;
         header.write(String::default());
 
